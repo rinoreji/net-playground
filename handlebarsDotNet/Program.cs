@@ -1,23 +1,21 @@
 ﻿using HandlebarsDotNet;
 
-// Handlebars.Configuration.Compatibility.RelaxedHelperNaming=false;
-
-Handlebars.RegisterHelper("#sph", (writer, context, arguments) =>
+Handlebars.RegisterHelper("sph", (writer, context, arguments) =>
 {
-  writer.Write("'h- w'");
+  writer.Write($"{arguments[0]} {arguments[1]}");
 });
 
 string source =
 @"<div class=""entry"">
-  <h1>{{#sph 'title' 'xyz'}}</h1>
+  <h1>{{title}} {{#sph 'by' 'Rino'}}</h1>
   <div class=""body"">
     {{body}}
   </div>
 </div>";
 
 var data = new {
-    title = "My new post",
-    body = "This is my first post!"
+    title = "Post",
+    body = "A sample body"
 };
 
 string GetRenderedText(string tmpl)
@@ -32,5 +30,6 @@ string GetRenderedText(string tmpl)
 
     return result;
 }
-
+Console.WriteLine( string.Join(',', Handlebars.Configuration.Helpers.Select(h=>$"{h.Key} - {h.Value}")));
+Console.WriteLine("--------");
 Console.WriteLine(GetRenderedText(source));
