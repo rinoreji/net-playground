@@ -17,9 +17,9 @@ db.SaveChanges();
 
 // Read
 Console.WriteLine("Querying for a request");
-int? req = db.Requests
+var req = db.Requests
     .Where(r=>r.CreatedBy.Id==null)
     .OrderBy(b => b.Id)
     // .Select(x=> $"{x.Id} : {x.Desc} : {x.CreatedBy.Id}");
-    .Select(x=> x.CreatedBy?.Id).FirstOrDefault();
+    .Select(x=> (int?)x.CreatedById).FirstOrDefault();
 Console.WriteLine(req);
