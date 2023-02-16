@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/handlebarsDotNet/bin/Debug/net7.0/handlebarsDotNet.dll",
+            "program": "${workspaceFolder}/efcore-poc/bin/Debug/net7.0/efcore-poc.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/handlebarsDotNet",
+            "cwd": "${workspaceFolder}/efcore-poc",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
