@@ -2,12 +2,9 @@ image: gitpod/workspace-dotnet
 
 
 tasks:
-  - name: Restore & Build
+  - name: Initilize
     init: |
-      cd handlebarsDotNet
       dotnet dev-certs https 
-      dotnet restore
-      dotnet build
 
 vscode:
   extensions:
